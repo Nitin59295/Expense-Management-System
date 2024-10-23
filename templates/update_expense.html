@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Expense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Update Expense</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            
+            <div class="form-group">
+                <label for="expense_type">{{ form.expense_type.label }}</label>
+                {{ form.expense_type(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="quantity">{{ form.quantity.label }}</label>
+                {{ form.quantity(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="item_name">{{ form.item_name.label }}</label>
+                {{ form.item_name(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="unit_price">{{ form.unit_price.label }}</label>
+                {{ form.unit_price(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="invoice_number">{{ form.invoice_number.label }}</label>
+                {{ form.invoice_number(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="seller_gstn">{{ form.seller_gstn.label }}</label>
+                {{ form.seller_gstn(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="seller_name">{{ form.seller_name.label }}</label>
+                {{ form.seller_name(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="gst_amount">{{ form.gst_amount.label }}</label>
+                {{ form.gst_amount(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="person_name">{{ form.person_name.label }}</label>
+                {{ form.person_name(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="person_designation">{{ form.person_designation.label }}</label>
+                {{ form.person_designation(class="form-control", size=32) }}
+            </div>
+            
+            <div class="form-group">
+                <label for="update_flag">{{ form.update_flag.label }}</label>
+                {{ form.update_flag(class="form-check-input") }} {{ form.update_flag.label(class="form-check-label") }}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Update Expense</button>
+            <a href="{{ url_for('list_expense') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

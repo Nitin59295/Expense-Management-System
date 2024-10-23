@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Welcome to the Expense Management System</h1>
+        <div class="mt-4">
+            <a href="{{ url_for('main.log_expense') }}" class="btn btn-primary">Log Expense</a>
+            <a href="{{ url_for('main.log_revenue') }}" class="btn btn-success">Log Revenue</a>
+            <a href="{{ url_for('main.list_expense') }}" class="btn btn-info">View Expenses</a>
+            <a href="{{ url_for('main.list_revenue') }}" class="btn btn-warning">View Revenues</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

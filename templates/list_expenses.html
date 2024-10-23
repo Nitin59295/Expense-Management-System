@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Expenses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">List of Expenses</h1>
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Expense Type</th>
+                    <th>Quantity</th>
+                    <th>Item Name</th>
+                    <th>Unit Price</th>
+                    <th>Total Amount</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.id }}</td>
+                    <td>{{ expense.expense_type }}</td>
+                    <td>{{ expense.quantity }}</td>
+                    <td>{{ expense.item_name }}</td>
+                    <td>{{ expense.unit_price }}</td>
+                    <td>{{ expense.total_amount }}</td>
+                    <td>
+                        <a href="{{ url_for('main.update_expense', id=expense.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+</body>
+</html>
