@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Log Expense{% endblock %}
+
+{% block content %}
+<h2>Log New Expense</h2>
+<form method="POST" action="{{ url_for('main.add_expense') }}">
+    {{ form.hidden_tag() }}
+    {{ form.expense_type.label }} {{ form.expense_type(size=20) }}<br>
+    {{ form.quantity.label }} {{ form.quantity(size=10) }}<br>
+    {{ form.item_name.label }} {{ form.item_name(size=20) }}<br>
+    {{ form.unit_price.label }} {{ form.unit_price(size=10) }}<br>
+    {{ form.invoice_number.label }} {{ form.invoice_number(size=20) }}<br>
+    {{ form.seller_GSTN.label }} {{ form.seller_GSTN(size=20) }}<br>
+    {{ form.seller_name.label }} {{ form.seller_name(size=20) }}<br>
+    {{ form.gst_amount.label }} {{ form.gst_amount(size=10) }}<br>
+    {{ form.employee_id.label }} {{ form.employee_id() }}<br>
+    {{ form.submit() }}
+</form>
+{% endblock %}

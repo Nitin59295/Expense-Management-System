@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Log New Revenue</h2>
+<form method="POST" action="{{ url_for('main.add_revenue') }}">
+    {{ form.hidden_tag() }}
+    {{ form.project_name.label }} {{ form.project_name(size=20) }}<br>
+    {{ form.total_estimated_revenue.label }} {{ form.total_estimated_revenue(size=10) }}<br>
+    {{ form.employee_id.label }} {{ form.employee_id() }}<br>
+    {{ form.submit() }}
+</form>
+{% endblock %}

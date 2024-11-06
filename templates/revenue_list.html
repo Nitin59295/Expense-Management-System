@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Logged Revenues</h2>
+<table>
+    <tr>
+        <th>Project Name</th>
+        <th>Total Estimated Revenue</th>
+        <th>Logged By</th>
+    </tr>
+    {% for revenue in revenues %}
+    <tr>
+        <td>{{ revenue.project_name }}</td>
+        <td>{{ revenue.total_estimated_revenue }}</td>
+        <td>{{ revenue.employee.name }}</td> <!-- Assuming employee relationship -->
+    </tr>
+    {% endfor %}
+</table>
+<a href="{{ url_for('main.add_revenue') }}">Log New Revenue</a>
+{% endblock %}

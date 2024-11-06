@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Logged Expenses{% endblock %}
+
+{% block content %}
+<h2>Logged Expenses</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Expense Type</th>
+            <th>Quantity</th>
+            <th>Item Name</th>
+            <th>Unit Price</th>
+            <th>Invoice Number</th>
+            <th>Seller GSTN</th>
+            <th>Seller Name</th>
+            <th>GST Amount</th>
+            <th>Logged By</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.expense_type }}</td>
+            <td>{{ expense.quantity }}</td>
+            <td>{{ expense.item_name }}</td>
+            <td>{{ expense.unit_price }}</td>
+            <td>{{ expense.invoice_number }}</td>
+            <td>{{ expense.seller_GSTN }}</td>
+            <td>{{ expense.seller_name }}</td>
+            <td>{{ expense.gst_amount }}</td>
+            <td>{{ expense.employee.name }}</td> <!-- Assuming employee relationship -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('main.add_expense') }}" class="btn btn-success">Log New Expense</a>
+{% endblock %}
