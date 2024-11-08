@@ -4,7 +4,12 @@
 
 {% block content %}
 <h2>Logged Expenses</h2>
-<table class="table table-bordered">
+
+<!-- Display total expense amount including GST -->
+<p><strong>Total Expense Amount (including GST):</strong> {{ total_expense_amount }}</p>
+
+<!-- Expense Table -->
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Expense Type</th>
@@ -15,7 +20,9 @@
             <th>Seller GSTN</th>
             <th>Seller Name</th>
             <th>GST Amount</th>
+            <th>Total Amount (Including GST)</th>
             <th>Logged By</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -29,10 +36,16 @@
             <td>{{ expense.seller_GSTN }}</td>
             <td>{{ expense.seller_name }}</td>
             <td>{{ expense.gst_amount }}</td>
-            <td>{{ expense.employee.name }}</td> <!-- Assuming employee relationship -->
+            <td>{{ expense.total_amount }}</td>
+            <td>{{ expense.employee.name }}</td>
+            <td>
+                <a href="{{ url_for('main.update_expense', expense_id=expense.id) }}" class="btn btn-primary btn-sm">Edit</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
+<!-- Button to log a new expense -->
 <a href="{{ url_for('main.add_expense') }}" class="btn btn-success">Log New Expense</a>
 {% endblock %}

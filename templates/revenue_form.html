@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Log New Revenue</h2>
-<form method="POST" action="{{ url_for('main.add_revenue') }}">
-    {{ form.hidden_tag() }}
-    {{ form.project_name.label }} {{ form.project_name(size=20) }}<br>
-    {{ form.total_estimated_revenue.label }} {{ form.total_estimated_revenue(size=10) }}<br>
-    {{ form.employee_id.label }} {{ form.employee_id() }}<br>
-    {{ form.submit() }}
-</form>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Log New Revenue</h2>
+    <form method="POST" action="{{ url_for('main.add_revenue') }}">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.project_name.label(class="form-label") }}
+            {{ form.project_name(class="form-control", size=20) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.total_estimated_revenue.label(class="form-label") }}
+            {{ form.total_estimated_revenue(class="form-control", size=10) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.employee_id.label(class="form-label") }}
+            {{ form.employee_id(class="form-select") }}
+        </div>
+
+        <div class="text-center">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
 {% endblock %}

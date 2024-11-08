@@ -1,20 +1,36 @@
 {% extends 'base.html' %}
 
+{% block title %}Logged Revenues{% endblock %}
+
 {% block content %}
 <h2>Logged Revenues</h2>
-<table>
-    <tr>
-        <th>Project Name</th>
-        <th>Total Estimated Revenue</th>
-        <th>Logged By</th>
-    </tr>
-    {% for revenue in revenues %}
-    <tr>
-        <td>{{ revenue.project_name }}</td>
-        <td>{{ revenue.total_estimated_revenue }}</td>
-        <td>{{ revenue.employee.name }}</td> <!-- Assuming employee relationship -->
-    </tr>
-    {% endfor %}
+
+<!-- Display total estimated revenue -->
+<p><strong>Total Estimated Revenue:</strong> {{ total_revenue_amount }}</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Total Estimated Revenue</th>
+            <th>Logged By</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for revenue in revenues %}
+        <tr>
+            <td>{{ revenue.project_name }}</td>
+            <td>{{ revenue.total_estimated_revenue }}</td>
+            <td>{{ revenue.employee.name }}</td> <!-- Assuming employee relationship -->
+            <td>
+                <a href="{{ url_for('main.update_revenue', revenue_id=revenue.id) }}" class="btn btn-primary btn-sm">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
-<a href="{{ url_for('main.add_revenue') }}">Log New Revenue</a>
+
+<!-- Button to log a new revenue entry -->
+<a href="{{ url_for('main.add_revenue') }}" class="btn btn-success">Log New Revenue</a>
 {% endblock %}

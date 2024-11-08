@@ -3,11 +3,21 @@
 {% block title %}Add Employee{% endblock %}
 
 {% block content %}
-<h2>Add New Employee</h2>
-<form method="POST" action="{{ url_for('main.add_employee') }}">
-    {{ form.hidden_tag() }}
-    {{ form.name.label }} {{ form.name(size=20) }}<br>
-    {{ form.designation.label }} {{ form.designation() }}<br>
-    {{ form.submit() }}
-</form>
+<div class="container mt-5">
+    <h2>Add New Employee</h2>
+    <form method="POST" action="{{ url_for('main.add_employee') }}">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control", size=20) }}
+        </div>
+        <div class="mb-3">
+            {{ form.designation.label(class="form-label") }}
+            {{ form.designation(class="form-select") }}
+        </div>
+        <div class="mb-3">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
 {% endblock %}

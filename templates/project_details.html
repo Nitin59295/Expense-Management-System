@@ -1,0 +1,25 @@
+<!-- Add Bootstrap classes for responsiveness and styling -->
+<div class="container mt-4">
+    <h2>Project: {{ project.name }}</h2>
+    <p>Description: {{ project.description }}</p>
+    <p><strong>Total Expenses:</strong> {{ total_expense }}</p>
+    <p><strong>Total Revenues:</strong> {{ total_revenue }}</p>
+
+    <h3>Expenses</h3>
+    <ul class="list-group">
+        {% for expense in project.expenses %}
+        <li class="list-group-item">
+            {{ expense.item_name }} - {{ expense.total_amount }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h3 class="mt-4">Revenues</h3>
+    <ul class="list-group">
+        {% for revenue in project.revenues %}
+        <li class="list-group-item">
+            {{ revenue.project_name }} - {{ revenue.total_estimated_revenue }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
