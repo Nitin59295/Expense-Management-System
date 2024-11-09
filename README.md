@@ -29,8 +29,7 @@ Installation Steps
 Clone the Repository:
 
 bash
-Copy code
-git clone https://github.com/your-username/expense-management-system.git
+{git clone https://github.com/your-username/expense-management-system.git}
 
 Set Up Database:
 
